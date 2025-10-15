@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Express</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #d6bfa5, #f2ebe3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 60px;
+      border-radius: 25px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 500px;
+    }
+    h1 {
+      color: #5c3a21;
+      font-size: 48px;
+      margin-bottom: 30px;
+    }
+    label {
+      font-size: 24px;
+      color: #3d2a1b;
+      display: block;
+      margin-bottom: 15px;
+    }
+    select, button {
+      width: 100%;
+      padding: 18px;
+      margin: 15px 0;
+      border-radius: 15px;
+      border: 2px solid #b59b82;
+      font-size: 22px;
+    }
+    button {
+      background: #5c3a21;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #754b2f;
+      transform: scale(1.03);
+    }
+    .message {
+      margin-top: 25px;
+      color: green;
+      font-weight: bold;
+      font-size: 24px;
+      transition: 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>☕ Café Express</h1>
+    <label for="coffee">Choisissez votre café :</label>
+    <select id="coffee">
+      <option value="Espresso">Espresso</option>
+      <option value="Cappuccino">Cappuccino</option>
+      <option value="Latte">Latte</option>
+      <option value="Americano">Americano</option>
+      <option value="Thé">Thé</option>
+    </select>
+    <button onclick="commander()">Commander</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    function commander() {
+      const choix = document.getElementById("coffee").value;
+      const msg = document.getElementById("message");
+      msg.style.color = "#b38b59";
+      msg.textContent = `☕ Votre ${choix} est en préparation...`;
+      setTimeout(() => {
+        msg.style.color = "green";
+        msg.textContent = `✅ Votre ${choix} est prêt ! Bon dégustation 😋`;
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
+
